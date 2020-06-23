@@ -1,10 +1,11 @@
 import React from "react";
 import "./App.css";
+import RewardBoard from "./components/RewardBoard";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">MILES APP</header>
+      <RewardBoard />
     </div>
   );
 }
