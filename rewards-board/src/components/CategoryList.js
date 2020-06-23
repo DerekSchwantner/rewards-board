@@ -2,12 +2,14 @@ import React from "react";
 import RewardCard from "./RewardCard";
 import styled, { css } from "styled-components";
 
-export default function CategoryList({ title }) {
+export default function CategoryList({ title, cards }) {
   return (
     <Container>
       <CategoryTitle>{title}</CategoryTitle>
-      <h3>List</h3>
-      <RewardCard />
+
+      {cards.map((card) => {
+        return <RewardCard text={card.text} />;
+      })}
     </Container>
   );
 }

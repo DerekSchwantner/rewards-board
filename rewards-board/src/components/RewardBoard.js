@@ -1,6 +1,6 @@
 import React from "react";
 import CategoryList from "./CategoryList";
-import { useSelector, connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function RewardBoard(props) {
   const lists = useSelector((state) => state.lists);
