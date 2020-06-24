@@ -1,10 +1,8 @@
 import React from "react";
-export const ADD_NUM = "ADD_NUM";
 
 const initialState = [
   {
     title: "Rewards",
-    number: 0,
     id: 60,
     cards: [
       {
@@ -49,7 +47,7 @@ const initialState = [
       },
       {
         id: 13,
-        text: "Reward 2",
+        text: "Reward 4",
       },
     ],
   },
@@ -60,10 +58,6 @@ const initialState = [
       {
         id: 14,
         text: "Reward 1",
-      },
-      {
-        id: 15,
-        text: "Reward 2",
       },
       {
         id: 99,
@@ -81,7 +75,7 @@ const initialState = [
       },
       {
         id: 17,
-        text: "Reward 2",
+        text: "Reward 3",
       },
     ],
   },
@@ -91,11 +85,11 @@ const initialState = [
     cards: [
       {
         id: 18,
-        text: "Reward 1",
+        text: "Reward 3",
       },
       {
         id: 19,
-        text: "Reward 2",
+        text: "Reward 4",
       },
     ],
   },
@@ -103,10 +97,7 @@ const initialState = [
 
 export default function BoardReducer(state = initialState, action) {
   switch (action.type) {
-    case "ADD_NUM":
-      const newNum = state[0].number;
-      const newState = [...state, newNum + 1];
-      return newState;
+    case "SORT":
     default:
       return state;
   }
