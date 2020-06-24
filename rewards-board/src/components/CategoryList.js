@@ -7,7 +7,9 @@ export default function CategoryList({ title, cards, id, className }) {
   return (
     <Container>
       <CategoryTitle>{title}</CategoryTitle>
-      <Droppable droppableId={String(id)}>
+      {/* Dropzones for each reward level so the rewards will stay in their respective swimlanes*/}
+      {/* Dropzone for reward 1 */}
+      <Droppable droppableId={`${title}-1`}>
         {(provided) => (
           <Tile
             rewardId={"1"}
@@ -32,7 +34,8 @@ export default function CategoryList({ title, cards, id, className }) {
           </Tile>
         )}
       </Droppable>
-      <Droppable droppableId={String(id)}>
+      {/* Dropzone for reward 2 */}
+      <Droppable droppableId={`${title}-2`}>
         {(provided) => (
           <Tile
             rewardId={"2"}
@@ -56,7 +59,8 @@ export default function CategoryList({ title, cards, id, className }) {
           </Tile>
         )}
       </Droppable>
-      <Droppable droppableId={String(id)}>
+      {/* Dropzone for reward 3 */}
+      <Droppable droppableId={`${title}-3`}>
         {(provided) => (
           <Tile
             rewardId={"4"}
@@ -80,7 +84,8 @@ export default function CategoryList({ title, cards, id, className }) {
           </Tile>
         )}
       </Droppable>
-      <Droppable droppableId={String(id)}>
+      {/* Dropzone for reward 4 */}
+      <Droppable droppableId={`${title}-4`}>
         {(provided) => (
           <Tile
             rewardId={"4"}
@@ -109,12 +114,17 @@ export default function CategoryList({ title, cards, id, className }) {
 }
 
 const Container = styled.div`
-  background-color: #ccc;
+  background-color: white;
   border: 1px solid black;
   border-radius: 3;
   width: 300px;
   padding: 1rem;
   margin-right1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60vh;
+
 `;
 const CategoryTitle = styled.h4``;
 
@@ -122,69 +132,5 @@ const Tile = styled.div`
   background-color: white;
   height: 7rem;
   width: 7rem;
+  border: 2px solid black;
 `;
-
-// const drop = (e) => {
-//     e.preventDefault();
-//     const cardId = e.dataTransfer.getData("cardId");
-//     const card = document.getElementById(cardId);
-
-//     card.style.display = "block";
-
-//     e.target.appendChild(card);
-//   };
-
-//   const dragOver = (e) => {
-//     e.preventDefault();
-//   };
-
-{
-  /* <Container
-      id={id}
-      className={className}
-      onDrop={drop}
-      onDragOver={dragOver}
-    >
-    </Container> */
-}
-
-{
-  /* <RewardCard
-            text={card.text}
-            id={card.id}
-            className="card"
-            draggable="true"
-            key={card.id}
-            onDragOver={dragOver}
-          /> */
-}
-
-//   This works
-// export default function CategoryList({ title, cards, id, className }) {
-//     return (
-//       <Droppable droppableId={String(id)}>
-//         {(provided) => (
-//           <Container
-//             {...provided.droppableProps}
-//             ref={provided.innerRef}
-//             id={id}
-//             className={className}
-//           >
-//             <CategoryTitle>{title}</CategoryTitle>
-
-//             {cards.map((card, index) => {
-//               return (
-//                 <RewardCard
-//                   text={card.text}
-//                   index={index}
-//                   id={card.id}
-//                   key={card.id}
-//                 />
-//               );
-//             })}
-//             {provided.placeholder}
-//           </Container>
-//         )}
-//       </Droppable>
-//     );
-//   }
