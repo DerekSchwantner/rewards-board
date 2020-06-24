@@ -1,20 +1,33 @@
 import React from "react";
 import CategoryList from "./CategoryList";
 import { useSelector } from "react-redux";
+import styled, { css } from "styled-components";
 
 export default function RewardBoard(props) {
+  // Accessing
   const lists = useSelector((state) => state.lists);
-  //   const { lists } = props;
   console.log(lists);
   return (
-    <div>
-      <h1>Hello</h1>
+    <BoardContainer>
       {lists.map((list) => {
-        return <CategoryList title={list.title} cards={list.cards} />;
+        return (
+          <CategoryList
+            title={list.title}
+            cards={list.cards}
+            key={list.id}
+            id={list.id}
+            className="board"
+          />
+        );
       })}
-    </div>
+    </BoardContainer>
   );
 }
+
+const BoardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 // const mapStateToProps = (state) => ({
 //   lists: state.lists,
