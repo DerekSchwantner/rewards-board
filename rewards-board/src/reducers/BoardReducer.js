@@ -97,6 +97,7 @@ const initialState = [
 
 export default function BoardReducer(state = initialState, action) {
   switch (action.type) {
+    // Build out the reducer for sorting and dropping the cards into different lists
     case "SORT":
     default:
       return state;
